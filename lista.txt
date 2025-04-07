@@ -1,0 +1,47 @@
+TODO
+1 Zrobić testy kontenerowe z użyciem POSTGRESQl
+pkt wyszukiwania - Krok 2: Konfiguracja testu z Testcontainers
+
+2. Zapamietać to. Dzięje się tak bo hibernate próbuje na typu Long domyślnie użyć sekwencji w bazie danych której nie ma. 
+Generalnie można do tego wrócić i pokombinować
+"Sequence "HIBERNATE_SEQUENCE" not found. 
+
+3. Chat powiedział że dotyczy to sytuacji gdy jakieś pole jest oznaczone @NotNull. Rozimiem że to chodzi oadnotacje hibernata
+   Ale u mnie chodziło o PK , które pewnie domyślnie na tą adnotację. Potestować
+
+Jeśli teraz pojawia się błąd "not-null property references a null or transient value"
+
+4. Przetestować to co pisze poniżej czyli jak rozumiem zadziała nie w testach konkekstowcych bez adnotacji @SpringBooTTest(coś takiego )
+Trzeba użyć tej adnotacji prawdziwy serwer to on ma na myśli produkcyjny. Ale jest taka ciekawa adnotacja @WebMvctest
+wysz: MockMvc pozwala na uruchamianie zapytań HTTP w kontekście testu bez potrzeby uruchamiania prawdziwego serwera HTTP
+
+5. W optionalu jest orElseThrow. Zwraca od razu docelowy obiekt no i mamy obsługe gdy czegoś nie ma
+
+6. 
+a) Użycie @MockBean jako sposóbu na nie ładowanie pradziwego beana w testach
+b) Osiągnięcie tego samego przy użyciu @Profili
+c) To samo przy użyciu @Imnport. Pokombinować
+d) No i ostatni sposób @TestConfiguration. To warto przetestować
+e) Zobacz moje koleje pytanie. Dotryczące import w kodzie jaki z tym problem miałem. Watrto się tym pobawić bo mogę się z tym spotkać w przyszłości
+wyszk: Najprostszym sposobem jest użycie adnotacji @MockBean
+
+
+7. Obiekt JSON w postaki InputStream mam ze stringa ale chciałem podmienić klucz Id. No i on jest w postaci zserializowanej
+i trzeba go spowrotem zdeserializować podmienić i spowrotem
+
+8. To warto przerobić  
+wysz: jak użyć bazy danych tylko w pamięci H2 podczas testów z adnotacją @SpringBootTest ??
+
+
+9. To warto przerobić. Te same typenie zadałem dotyczące nadpiwyawanie. Warto do tego wrócic
+wysz: Dynamiczne nadpisywanie beanów w ApplicationContext (zaawansowane)
+
+10. Wkleiłem wyjątek. Warto go wywołać jeszcze raz
+wysz:  Spring wykrywa, że w testach próbujesz zarejestrować dwa różne beany o tej samej nazwie 
+
+11. Ten @InjectMocks. Wyszukaj to
+
+wysz: W przypadku testów jednostkowych, gdzie używasz wstrzykiwania zależności, możesz również użyć @MockBean do zamockowania zależności
+
+12. Spróbować to wywołac
+"Requested bean is currently in creation: Is there an unresolvable circular reference?
