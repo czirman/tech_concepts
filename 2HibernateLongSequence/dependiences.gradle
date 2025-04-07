@@ -1,12 +1,13 @@
 ext {
     lombok_version = "1.18.26"
+    h2_version ="2.1.214"
     jupiter_version = "5.9.3"
     mockito_version = "5.3.1"
 }
 
 dependencies {
-    //http://localhost:8080/actuator
     implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.boot:spring-boot-starter-web'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -17,8 +18,8 @@ dependencies {
     testCompileOnly "org.projectlombok:lombok:${lombok_version}"
     testAnnotationProcessor "org.projectlombok:lombok:${lombok_version}"
 
-    // POSTGRES
-    runtimeOnly 'org.postgresql:postgresql'
+    // H2
+    implementation "com.h2database:h2:${h2_version}"
 
     // TEST
     testImplementation "org.junit.jupiter:junit-jupiter-api:${jupiter_version}"
@@ -26,24 +27,6 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-params:${jupiter_version}"
     testImplementation "org.mockito:mockito-junit-jupiter:${mockito_version}"
 
-    // Test Containers
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
-    testImplementation 'org.testcontainers:testcontainers:1.19.3'
-    testImplementation 'org.testcontainers:postgresql:1.19.3'
-    testImplementation 'org.testcontainers:junit-jupiter:1.19.3'
+    //LIQUIBASE
+    implementation 'org.liquibase:liquibase-core'
 }
-
-
-/cho "# tech_concepts" >> README.md
-git init
-git add README.md
-git commit -m "first commit"
-git branch -M main
-git remote add origin git@github.com:czirman/tech_concepts.git
-git push -u origin main
-
-…or push an existing repository from the command line
-
-git remote add origin git@github.com:czirman/tech_concepts.git
-git branch -M main
-git push -u origin main
