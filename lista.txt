@@ -1,6 +1,5 @@
 TODO
-1 Zrobić testy kontenerowe z użyciem POSTGRESQl
-pkt wyszukiwania - Krok 2: Konfiguracja testu z Testcontainers
+
 
 2. Zapamietać to. Dzięje się tak bo hibernate próbuje na typu Long domyślnie użyć sekwencji w bazie danych której nie ma. 
 Generalnie można do tego wrócić i pokombinować
