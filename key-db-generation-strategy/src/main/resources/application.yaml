@@ -1,0 +1,19 @@
+main:
+  test: test
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/generation-strategy
+    username: devuser
+    password: devpass
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: none
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  liquibase:
+    enabled: true
+    change-log: classpath:/db/changelog/changelog-master.yaml
+

@@ -1,0 +1,41 @@
+ext {
+    groovy_version    = "4.0.21"
+    spock_version     = "2.4-M1-groovy-4.0"
+    objenesis_version = "3.3"
+    postgres_version  = "42.7.3"
+    liquibase_version = "4.27.0"
+}
+
+dependencies {
+    // ===== PRODUKCJA =====
+    implementation 'org.springframework.boot:spring-boot-starter-actuator'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // db
+    implementation "org.postgresql:postgresql:${postgres_version}"
+
+    // ===== TESTY =====
+    // Spring Boot test framework
+    testImplementation('org.springframework.boot:spring-boot-starter-test') {
+        exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
+        exclude group: 'junit', module: 'junit'
+    }
+
+    // Groovy w testach
+    testImplementation "org.apache.groovy:groovy:${groovy_version}"
+
+    // Spock
+    testImplementation "org.spockframework:spock-core:${spock_version}"
+    testImplementation "org.spockframework:spock-spring:${spock_version}"
+
+    // Objenesis dla mockowania final classes
+    testImplementation "org.objenesis:objenesis:${objenesis_version}"
+
+
+    // Liquibase
+    implementation "org.liquibase:liquibase-core:${liquibase_version}"
+
+    runtimeOnly 'com.h2database:h2:2.2.220'
+
+}

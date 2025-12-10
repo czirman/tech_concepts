@@ -1,0 +1,23 @@
+databaseChangeLog:
+  - changeSet:
+      id: 1
+      author: czirman
+      changes:
+        - createSequence:
+              sequenceName: my_seq
+              startValue: 1
+              incrementBy: 1
+        - createTable:
+            tableName: tabela
+            columns:
+              - column:
+                  name: id
+                  type: BIGINT
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: name
+                  type: VARCHAR(255)
+                  constraints:
+                    nullable: false
